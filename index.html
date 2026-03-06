@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pentagon — Brand Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #131518;
+      font-weight: 300;
+      color: #E0E4EB;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(14, 16, 20, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1C1F24;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    nav .logo { height: 28px; }
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 40px 40px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 300;
+      color: #ffffff;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: #9BA1AE;
+      font-weight: 300;
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    /* SIDEBAR TOC */
+    .page-wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 100px;
+    }
+    .toc {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+    }
+    .toc h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #4A4F5C;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .toc a {
+      display: block;
+      text-decoration: none;
+      color: #6C7280;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 8px 0;
+      transition: color 0.15s;
+    }
+    .toc a:hover { color: #ffffff; }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 64px;
+    }
+    section h2 {
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 32px;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+
+    /* ASSET ROW */
+    .asset-row {
+      display: flex;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid #1C1F24;
+      gap: 40px;
+    }
+    .asset-row:first-of-type {
+      border-top: 1px solid #1C1F24;
+    }
+    .asset-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 180px;
+    }
+    .asset-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #4A4F5C;
+      font-weight: 500;
+    }
+    .asset-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      border: 1px solid #2A2E35;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #D4D9E1;
+      text-decoration: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn:hover {
+      background: #1C1F24;
+      border-color: #6C7280;
+      color: #ffffff;
+    }
+    .asset-preview {
+      flex-shrink: 0;
+      max-height: 48px;
+      max-width: 240px;
+      object-fit: contain;
+    }
+    .asset-preview-mark {
+      max-height: 80px;
+      max-width: 80px;
+    }
+    .asset-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* COLOR PALETTE */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .color-card {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #1C1F24;
+      background: #0E1014;
+    }
+    .color-swatch {
+      height: 120px;
+    }
+    .color-info {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .color-name {
+      font-size: 13px;
+      color: #9BA1AE;
+      margin-bottom: 2px;
+      font-weight: 400;
+    }
+    .color-hex {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      color: #D4D9E1;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #4A4F5C;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+    .copy-btn:hover { background: #1C1F24; color: #D4D9E1; }
+
+    /* PRESS */
+    .press-section p {
+      font-size: 15px;
+      color: #9BA1AE;
+      line-height: 1.7;
+    }
+    .press-section a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .press-section a:hover {
+      color: #D4D9E1;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .page-wrap {
+        grid-template-columns: 1fr;
+        padding: 0 20px 60px;
+      }
+      .toc { display: none; }
+      .hero { padding: 48px 20px 24px; }
+      .hero h1 { font-size: 32px; }
+      .color-grid { grid-template-columns: repeat(2, 1fr); }
+      .asset-row { flex-direction: column; gap: 16px; align-items: flex-start; }
+      nav { padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <img src="LOGO/Pentagon_FullLockup.svg" alt="Pentagon" class="logo">
+    <a href="https://www.pentagon.run" target="_blank" rel="noopener" class="btn nav-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      pentagon.run
+    </a>
+  </nav>
+
+  <div class="hero">
+    <h1>Brand Kit</h1>
+    <p>Follow these guidelines when representing Pentagon in marketing communications, including advertising, websites, and press promotions.</p>
+  </div>
+
+  <div class="page-wrap">
+    <main>
+
+      <section id="assets">
+        <h2>Assets</h2>
+
+        <div class="asset-row">
+          <div class="asset-info">
+            <span class="asset-label">Full Lockup</span>
+            <div class="asset-buttons">
+              <a href="LOGO/Pentagon_FullLockup.png" download class="btn">PNG</a>
+              <a href="LOGO/Pentagon_FullLockup.svg" download class="btn">SVG</a>
+            </div>
+          </div>
+          <div class="asset-center">
+            <img src="LOGO/Pentagon_FullLockup.svg" alt="Pentagon full lockup" class="asset-preview">
+          </div>
+        </div>
+
+        <div class="asset-row">
+          <div class="asset-info">
+            <span class="asset-label">Icon Only</span>
+            <div class="asset-buttons">
+              <a href="LOGO/Pentagon_IconOnly.png" download class="btn">PNG</a>
+              <a href="LOGO/Pentagon_IconOnly.svg" download class="btn">SVG</a>
+            </div>
+          </div>
+          <div class="asset-center">
+            <img src="LOGO/Pentagon_IconOnly.svg" alt="Pentagon icon" class="asset-preview asset-preview-mark">
+          </div>
+        </div>
+
+        <div class="asset-row">
+          <div class="asset-info">
+            <span class="asset-label">Wordmark Only</span>
+            <div class="asset-buttons">
+              <a href="LOGO/Pentagon_WordmarkOnly.png" download class="btn">PNG</a>
+              <a href="LOGO/Pentagon_WordmarkOnly.svg" download class="btn">SVG</a>
+            </div>
+          </div>
+          <div class="asset-center">
+            <img src="LOGO/Pentagon_WordmarkOnly.svg" alt="Pentagon wordmark" class="asset-preview">
+          </div>
+        </div>
+      </section>
+
+      <section id="colors">
+        <h2>Color Palette</h2>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-swatch" style="background: #0B0D10;"></div>
+            <div class="color-info">
+              <div>
+                <div class="color-name">Deep</div>
+                <span class="color-hex">#0B0D10</span>
+              </div>
+              <button class="copy-btn" onclick="copyColor('#0B0D10')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #131518;"></div>
+            <div class="color-info">
+              <div>
+                <div class="color-name">Background</div>
+                <span class="color-hex">#131518</span>
+              </div>
+              <button class="copy-btn" onclick="copyColor('#131518')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #1C1F24;"></div>
+            <div class="color-info">
+              <div>
+                <div class="color-name">Surface</div>
+                <span class="color-hex">#1C1F24</span>
+              </div>
+              <button class="copy-btn" onclick="copyColor('#1C1F24')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #6C7280;"></div>
+            <div class="color-info">
+              <div>
+                <div class="color-name">Muted</div>
+                <span class="color-hex">#6C7280</span>
+              </div>
+              <button class="copy-btn" onclick="copyColor('#6C7280')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #D4D9E1; border-bottom: 1px solid #1C1F24;"></div>
+            <div class="color-info">
+              <div>
+                <div class="color-name">Light</div>
+                <span class="color-hex">#D4D9E1</span>
+              </div>
+              <button class="copy-btn" onclick="copyColor('#D4D9E1')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #FFFFFF; border-bottom: 1px solid #1C1F24;"></div>
+            <div class="color-info">
+              <div>
+                <div class="color-name">White</div>
+                <span class="color-hex">#FFFFFF</span>
+              </div>
+              <button class="copy-btn" onclick="copyColor('#FFFFFF')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="press-section">
+        <h2>Press Inquiries</h2>
+        <p>Please direct all inquiries to <a href="mailto:press@pentagon.run">press@pentagon.run</a>.</p>
+      </section>
+    </main>
+
+    <aside class="toc">
+      <h4>Contents</h4>
+      <a href="#assets">Asset downloads</a>
+      <a href="#colors">Color palette</a>
+      <a href="#contact">Press inquiries</a>
+    </aside>
+  </div>
+
+  <script>
+    function copyColor(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        const btn = event.target.closest('.copy-btn');
+        const svg = btn.querySelector('svg').outerHTML;
+        btn.innerHTML = svg + ' Copied!';
+        setTimeout(() => btn.innerHTML = svg + ' Copy', 1500);
+      });
+    }
+  </script>
+
+</body>
+</html>
